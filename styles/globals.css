@@ -69,7 +69,7 @@ body {
 .year {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 100;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.03); 
   font-size: 20vw;
   position: absolute;
   top: 50%;
