@@ -26,13 +26,39 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
   z-index: -1;
+}
+
+.stars, .twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars {
+  background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center;
+  z-index: 0;
+}
+
+.twinkling {
+  background: transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
+  z-index: 1;
+  animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {background-position: 0 0;}
+  to {background-position: -10000px 5000px;}
 }
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,11 +82,11 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 1rem; /* Reduced from 4rem to 2rem */
+  margin-bottom: 2rem;
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
   height: auto;
   max-height: 200px;
   object-fit: contain;
@@ -68,8 +94,8 @@ body {
 
 .year {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.03); 
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.1);
   font-size: 20vw;
   position: absolute;
   top: 50%;
@@ -86,7 +112,7 @@ body {
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .highlight {
@@ -133,12 +159,12 @@ body {
 
 @media (max-width: 768px) {
   .logoContainer {
-    margin-bottom: 1rem; /* Reduced from 3rem to 1.5rem */
+    margin-bottom: 1.5rem;
   }
 
   .logo {
-    width: 150px; /* Increased from 100px to 150px */
-    max-height: 150px; /* Increased from 100px to 150px */
+    width: 150px;
+    max-height: 150px;
   }
 
   .mainTitle {
@@ -147,7 +173,7 @@ body {
   }
 
   .date {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
   }
 
@@ -160,12 +186,12 @@ body {
 
 @media (max-width: 480px) {
   .logoContainer {
-    margin-bottom: 1rem; /* Reduced from 2rem to 1rem */
+    margin-bottom: 1rem;
   }
 
   .logo {
-    width: 100px; /* Increased from 80px to 100px */
-    max-height: 100px; /* Increased from 80px to 100px */
+    width: 100px;
+    max-height: 100px;
   }
 
   .mainTitle {

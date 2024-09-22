@@ -9,7 +9,10 @@ const DeepLearningIndabaPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="background"></div>
+      <div className="background">
+        <div className="stars"></div>
+        <div className="twinkling"></div>
+      </div>
       <div className="content">
         <div className="container">
           <div className="logoContainer">
