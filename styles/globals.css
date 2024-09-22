@@ -36,9 +36,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 2rem 1rem;
   color: var(--text-primary);
 }
 
@@ -46,50 +46,30 @@ body {
   max-width: 64rem;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logoContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 1rem;
-  }
-  
-  .logo {
-    width: 80px; /* Set a fixed width */
-    height: 80px; /* Set a fixed height */
-    object-fit: contain; /* This will maintain the aspect ratio */
-  }
-  
-  .logo-left {
-    align-self: flex-start;
-  }
-  
-  .logo-right {
-    align-self: flex-end;
-  }
-  
-  @media (max-width: 768px) {
-    .logo {
-      width: 60px;
-      height: 60px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .logo {
-      width: 50px;
-      height: 50px;
-    }
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem; /* Reduced from 4rem to 2rem */
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
 .year {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.1);
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.03);
   font-size: 20vw;
   position: absolute;
   top: 50%;
@@ -106,8 +86,7 @@ body {
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .highlight {
@@ -116,10 +95,10 @@ body {
 
 .date {
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   letter-spacing: 0.1em;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   color: var(--text-secondary);
 }
 
@@ -137,7 +116,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   display: block;
-  margin: 0 auto 3rem;
+  margin: 0 auto 4rem;
 }
 
 .stayTuned:hover {
@@ -146,37 +125,64 @@ body {
 }
 
 .email {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
   text-align: center;
   color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
+  .logoContainer {
+    margin-bottom: 1rem; /* Reduced from 3rem to 1.5rem */
+  }
+
+  .logo {
+    width: 150px; /* Increased from 100px to 150px */
+    max-height: 150px; /* Increased from 100px to 150px */
+  }
+
   .mainTitle {
     font-size: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .date {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    margin-bottom: 3rem;
   }
 
   .stayTuned {
     font-size: 1rem;
     padding: 0.6rem 1.5rem;
+    margin-bottom: 3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .mainTitle {
-    font-size: 2rem;
-  }
-
-  .date {
-    font-size: 1rem;
+  .logoContainer {
+    margin-bottom: 1rem; /* Reduced from 2rem to 1rem */
   }
 
   .logo {
-    max-height: 40px;
+    width: 100px; /* Increased from 80px to 100px */
+    max-height: 100px; /* Increased from 80px to 100px */
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .date {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .stayTuned {
+    margin-bottom: 2rem;
+  }
+
+  .email {
+    font-size: 0.875rem;
   }
 }
