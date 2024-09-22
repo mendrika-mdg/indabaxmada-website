@@ -212,3 +212,12 @@ body {
     font-size: 0.875rem;
   }
 }
+
+
+.countdown {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 4rem;
+}
