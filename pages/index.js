@@ -35,8 +35,8 @@ const DeepLearningIndabaPage = () => {
   return (
     <>
       <Head>
-        <title>Deep Learning Indaba Madagascar 2024</title>
-        <meta name="description" content="L'IA pour le développement de Madagascar" />
+        <title>IndabaX Madagascar 2024</title>
+        <meta name="description" content="L'IA pour le développement de Madagascar, annual." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
