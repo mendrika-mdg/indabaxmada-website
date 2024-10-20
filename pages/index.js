@@ -45,13 +45,25 @@ const DeepLearningIndabaPage = () => {
         <div className="twinkling"></div>
       </div>
       
+      <header className="header">
+        <div className="headerContainer">
+          <img src="/logo-madagascar.png" alt="Deep Learning Indaba Madagascar Logo" className="headerLogo" />
+          <nav className="headerNav">
+            <ul>
+              <li><a href="#speakers">Speakers</a></li>
+              <li><a href="#programme">Programme</a></li>
+              <li><a href="#ideathon">Ideathon</a></li>
+              <li><a href="#hackathon">Hackathon</a></li>
+              <li><a href="#poster-sessions">Poster sessions</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </nav>
+          <img src="/logo-indaba.png" alt="Deep Learning Indaba Logo" className="headerLogo" />
+        </div>
+      </header>
+
       <div className="content">
         <div className="container">
-          <div className="logoContainer">
-            <img src="/logo-madagascar.png" alt="Deep Learning Indaba Madagascar Logo" className="logo" />
-            <img src="/logo-indaba.png" alt="Deep Learning Indaba Logo" className="logo" />
-          </div>
-
           <div className="year">2024</div>
 
           <h2 className="mainTitle">

@@ -77,14 +77,6 @@ body {
   align-items: center;
 }
 
-.logoContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
 .logo {
   width: 200px;
   height: auto;
@@ -158,10 +150,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .logoContainer {
-    margin-bottom: 1.5rem;
-  }
-
   .logo {
     width: 150px;
     max-height: 150px;
@@ -220,4 +208,57 @@ body {
   text-align: center;
   color: var(--text-secondary);
   margin-bottom: 4rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.headerLogo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.headerNav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.headerNav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.headerNav li {
+  margin: 0 15px;
+}
+
+.headerNav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.headerNav a:hover {
+  color: var(--accent-color);
 }
