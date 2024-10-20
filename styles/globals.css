@@ -57,13 +57,13 @@ body {
 }
 
 .content {
+  flex: 1 0 auto;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
   padding: 2rem 1rem;
   color: var(--text-primary);
 }
@@ -75,14 +75,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.logoContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2rem;
 }
 
 .logo {
@@ -101,7 +93,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: -1;  /* This ensures it's behind other content */
 }
 
 .mainTitle {
@@ -113,19 +105,35 @@ body {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 3rem;
+  position: relative;  /* Add this to create a new stacking context */
+  z-index: 1;  /* Add this to ensure it's above the year */
 }
 
 .highlight {
   color: var(--accent-color);
 }
 
-.date {
+.date, .location {
   font-weight: 400;
   font-size: 1.75rem;
   letter-spacing: 0.1em;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date svg, .location svg {
+  margin-right: 0.5rem;
+  width: 1em !important; /* Force the icon width to match the font size */
+  height: 1em !important; /* Force the icon height to match the font size */
+}
+
+.location {
+  font-size: 1.25rem;
+  margin-bottom: 4rem;
 }
 
 .stayTuned {
@@ -158,10 +166,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .logoContainer {
-    margin-bottom: 1.5rem;
-  }
-
   .logo {
     width: 150px;
     max-height: 150px;
@@ -180,6 +184,15 @@ body {
   .stayTuned {
     font-size: 1rem;
     padding: 0.6rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .date, .location {
+    font-size: 1.5rem;
+  }
+
+  .location {
+    font-size: 1rem;
     margin-bottom: 3rem;
   }
 }
@@ -208,8 +221,13 @@ body {
     margin-bottom: 2rem;
   }
 
-  .email {
-    font-size: 0.875rem;
+  .date, .location {
+    font-size: 1.25rem;
+  }
+
+  .location {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -220,4 +238,160 @@ body {
   text-align: center;
   color: var(--text-secondary);
   margin-bottom: 4rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.headerLogo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.headerLogo:hover {
+  transform: scale(1.05);
+}
+
+.headerNav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.headerNav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.headerNav li {
+  margin: 0 15px;
+}
+
+.headerNav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.headerNav a:hover {
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.headerNav a.active {
+  color: var(--accent-color);
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.headerCountdown {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 0;
+  text-align: center;
+}
+
+.countdown {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding-top: 140px; /* Increase this value to account for the header and countdown */
+}
+
+.comingSoon h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.comingSoon p {
+  font-size: 1.5rem;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--text-secondary);
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footerEmail {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.content-shifted {
+  padding-top: 100px; /* Default padding for larger screens */
+}
+
+@media (max-width: 768px) {
+  .content-shifted {
+    padding-top: 60px; /* Less padding for smaller screens */
+  }
+}
+
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    max-width: 90%;
+  }
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
 }
