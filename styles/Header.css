@@ -1,0 +1,130 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerLogo {
+  height: 50px;
+  width: auto;
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.hamburger.open {
+  background: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+}
+
+.headerNav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.headerNav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.headerNav a.active {
+  color: #007bff;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .headerNav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .headerNav.open {
+    display: block;
+  }
+
+  .headerNav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .headerLogo {
+    height: 40px;
+  }
+}
+
+/* Add margin-top to main content */
+main {
+  margin-top: 80px; /* Adjust this value based on your header height */
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: 70px; /* Slightly smaller margin for mobile */
+  }
+}
