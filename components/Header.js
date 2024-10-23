@@ -1,12 +1,35 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCountdown } from './CountdownContext';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const router = useRouter();
   const countdown = useCountdown();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isActive = (path) => router.pathname === path;
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [router.pathname]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.headerNav') && !event.target.closest('.mobileMenuButton')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
 
   return (
     <header className="header">
@@ -14,8 +37,13 @@ const Header = () => {
         <Link href="/">
           <img src="/logo-madagascar.png" alt="Deep Learning Indaba Madagascar Logo" className="headerLogo" />
         </Link>
-        <nav className="headerNav">
-          <ul>
+        
+        <button className="mobileMenuButton" onClick={toggleMenu} aria-label="Toggle menu">
+          <span className={`hamburger ${isMenuOpen ? 'open' : ''}`}></span>
+        </button>
+
+        <nav className={`headerNav ${isMenuOpen ? 'mobileOpen' : ''}`}>
+          <ul className="navList">
             <li><Link href="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link href="/speakers" className={isActive('/speakers') ? 'active' : ''}>Speakers</Link></li>
             <li><Link href="/programme" className={isActive('/programme') ? 'active' : ''}>Programme</Link></li>
@@ -25,6 +53,7 @@ const Header = () => {
             <li><Link href="/about" className={isActive('/about') ? 'active' : ''}>About</Link></li>
           </ul>
         </nav>
+        
         <Link href="/">
           <img src="/logo-indaba.png" alt="Deep Learning Indaba Logo" className="headerLogo" />
         </Link>
