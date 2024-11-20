@@ -1,6 +1,6 @@
-# Deep Learning Indaba Madagascar 2024
+# IndabaX Madagascar 2024
 
-This is the website for the Deep Learning Indaba Madagascar 2024 event.
+This is the website for the IndabaX Madagascar 2024 event.
 
 ## Getting Started
 
