@@ -330,8 +330,29 @@ body {
   height: 100vh;
   background-color: #000;
   color: #fff;
-  padding-top: 140px; /* Increase this value to account for the header and countdown */
+  padding-top: 140px; /* Keeps space for the header and countdown */
+  text-align: center; /* Ensures the heading remains centered */
 }
+
+.comingSoon .content {
+  width: 95%; /* Increased width for larger screens */
+  max-width: 1200px; /* Expanded max-width for better readability */
+  text-align: left; /* Aligns text inside this container to the left */
+  padding: 0 20px; /* Adds some padding for smaller screens */
+}
+
+.comingSoon img {
+  margin-bottom: 20px; /* Adds space below the image */
+}
+
+.comingSoon section {
+  margin-bottom: 20px; /* Adds space between sections */
+}
+
+.comingSoon ul, .comingSoon ol {
+  padding-left: 20px; /* Indentation for lists */
+}
+
 
 .comingSoon h1 {
   font-size: 3rem;
@@ -499,4 +520,108 @@ body {
   .headerNav a.active {
     background-color: #333333;
   }
+}
+
+
+.hackathon {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  background-color: #000;
+  color: #fff;
+  height: 200vh;
+  padding-top: 140px; /* Increase this value to account for the header and countdown */
+
+}
+
+.hackathon .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  justify-content:  center;
+  padding-left: 50px;
+  padding-right: 50px;
+
+
+}
+
+
+.info h1{
+  font-size: 30px;
+}
+
+.info p{
+  font-size: 25px;
+  padding: 5px;
+}
+
+
+img {
+  height: auto;         /* Ensures aspect ratio is preserved */
+  object-fit: contain;  /* Ensures the image is fully visible without stretching */
+}
+
+/* FAQ section styles */
+.faq {
+  padding: 50px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  background-color: #148135;
+  color: white;
+  border: none;
+  padding: 7px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e2b213;
+}
+
+.faq-answer {
+  padding: 10px 0;
+  font-size: 22px;
+  line-height: 2;
+  display: block;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+
+/* If the answer is visible, show it */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+
+
+.alert-box {
+  background-color: #f8d7da;  /* Light red background */
+  color: #721c24;             /* Dark red text color */
+  border: 1px solid #f5c6cb; /* Border color to match the background */
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visibility */
+}
+
+.alert-box:hover {
+  background-color: #f1b0b7; /* Slightly darker red when hovered */
 }
